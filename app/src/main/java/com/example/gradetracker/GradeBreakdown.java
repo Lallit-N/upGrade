@@ -1,29 +1,35 @@
 package com.example.gradetracker;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GradeBreakdown {
 
-    private HashMap<String, List<Assessment>> assessments;
+    private double marksAvailable;
+    private Set<BreakdownEntry> gBreakdown;
 
 
     public GradeBreakdown() {
-        assessments = new HashMap<String, List<Assessment>>();
+        gBreakdown = new HashSet<BreakdownEntry>();
+        marksAvailable = 100;
     }
 
-    public void addAssessment(Assessment assessment) {
-        if (assessments.containsKey(assessment.getTypeOfAssessment())) {
-            assessments.get(assessment.getTypeOfAssessment()).add(assessment);
-        } else {
-            List<Assessment> newList = new ArrayList<Assessment>();
-            newList.add(assessment);
-            assessments.put(assessment.getTypeOfAssessment(), newList);
-        }
+    public Set<BreakdownEntry> getGBreakdown() {
+        return gBreakdown;
     }
 
-    public void removeAssessment(Assessment assessment) {
-        assessments.get(assessment.getTypeOfAssessment()).remove(assessment);
+    public double getMarksAvailable() {
+        return marksAvailable;
     }
+
+    public void addBreakdownEntry(BreakdownEntry be) {
+        gBreakdown.add(be);
+        marksAvailable -= be.getWeighting();
+    }
+
+    public void removeBreakdownEntry(BreakdownEntry be) {
+        gBreakdown.remove(be);
+        marksAvailable += be.getWeighting();
+    }
+
 }
