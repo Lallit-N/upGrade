@@ -4,13 +4,13 @@ public class Assessment {
 
     private String name;
     private double grade;
-    private String typeOfAssessment;
+    private BreakdownEntry breakdownEntry;
 
 
-    public Assessment(String name, double grade, String typeOfAssessment) {
+    public Assessment(String name, double grade, BreakdownEntry breakdownEntry) {
         this.name = name;
         this.grade = grade;
-        this.typeOfAssessment = typeOfAssessment;
+        this.breakdownEntry = breakdownEntry;
     }
 
     public String getName() {
@@ -21,7 +21,7 @@ public class Assessment {
         return grade;
     }
 
-    public String getTypeOfAssessment() {
-        return typeOfAssessment;
+    public BreakdownEntry getBreakdownEntry() {
+        return breakdownEntry;
     }
 }

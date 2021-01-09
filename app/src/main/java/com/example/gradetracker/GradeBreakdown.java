@@ -1,9 +1,12 @@
 package com.example.gradetracker;
 
+import androidx.annotation.NonNull;
+
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
-public class GradeBreakdown {
+public class GradeBreakdown implements Iterable<BreakdownEntry> {
 
     private double marksAvailable;
     private Set<BreakdownEntry> gBreakdown;
@@ -32,4 +35,9 @@ public class GradeBreakdown {
         marksAvailable += be.getWeighting();
     }
 
+    @NonNull
+    @Override
+    public Iterator<BreakdownEntry> iterator() {
+        return gBreakdown.iterator();
+    }
 }

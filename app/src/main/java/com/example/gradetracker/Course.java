@@ -1,21 +1,22 @@
 package com.example.gradetracker;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Course {
 
     private String name;
-    private double grade;
+    private double currentGrade;
+    private double minGrade;
+    private double maxGrade;
     private GradeBreakdown gradeBreakdown;
-    private HashMap<String, List<Assessment>> assessments;
+    private Set<Assessment> assessments;
 
 
     public Course(String name, GradeBreakdown gb) {
         this.name = name;
         gradeBreakdown = gb;
-        assessments = new HashMap<String, List<Assessment>>();
+        assessments = new HashSet<Assessment>();
     }
 
     public String getName() {
@@ -26,25 +27,22 @@ public class Course {
         return gradeBreakdown;
     }
 
-    public HashMap<String, List<Assessment>> getAssessments() {
+    public Set<Assessment> getAssessments() {
         return assessments;
     }
 
     public void addAssessment(Assessment assessment) {
-        if (assessments.containsKey(assessment.getTypeOfAssessment())) {
-            assessments.get(assessment.getTypeOfAssessment()).add(assessment);
-        } else {
-            List<Assessment> newList = new ArrayList<Assessment>();
-            newList.add(assessment);
-            assessments.put(assessment.getTypeOfAssessment(), newList);
-        }
+        assessments.add(assessment);
+        assessment.getBreakdownEntry().addAssessment();
     }
 
     public void removeAssessment(Assessment assessment) {
-        assessments.get(assessment.getTypeOfAssessment()).remove(assessment);
+        assessments.remove(assessment);
+        assessment.getBreakdownEntry().removeAssessment();
     }
 
     public double getCurrentGrade() {
+
         return 0; // stub
     }
 
