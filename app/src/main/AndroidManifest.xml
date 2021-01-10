@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradeTracker">
+        <activity android:name=".CourseActivity"></activity>
         <activity android:name=".CourseListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

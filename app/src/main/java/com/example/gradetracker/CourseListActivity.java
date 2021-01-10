@@ -100,8 +100,8 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
 
     @Override
     public void onCourseClick(int position) {
-        //Intent intent = new Intent(this, NewActivity.class);
-        //intent.putExtra("Course", mCourses.get(position));
-        //startActivity(intent);
+        Intent intent = new Intent(this, CourseActivity.class);
+        intent.putExtra("Course", mCourses.get(position));
+        startActivity(intent);
     }
 }
