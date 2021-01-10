@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,15 +24,18 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-//        courseList.add(new Course("CPSC 221", new GradeBreakdown()));
-//        courseList.add(new Course("CPSC 213", new GradeBreakdown()));
-//        courseList.add(new Course("MATH 221", new GradeBreakdown()));
-//        courseList.add(new Course("PSYC 102", new GradeBreakdown()));
+        HashSet<BreakdownEntry> breakdownEntries = new HashSet<BreakdownEntry>();
+        breakdownEntries.add(new BreakdownEntry("yes", 20, 2));
+
+        courseList.add(new Course("CPSC 221", new GradeBreakdown(breakdownEntries)));
+        courseList.add(new Course("CPSC 213", new GradeBreakdown(breakdownEntries)));
+        courseList.add(new Course("MATH 221", new GradeBreakdown(breakdownEntries)));
+        courseList.add(new Course("PSYC 102", new GradeBreakdown(breakdownEntries)));
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CourseAdapter(courseList);
+        adapter = new CourseAdapter(this, courseList);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
