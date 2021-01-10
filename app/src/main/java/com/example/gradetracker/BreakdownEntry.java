@@ -7,8 +7,8 @@ public class BreakdownEntry {
     private double totalNumAssessments;
     private double numAssessmentsLeft;
 
-    public BreakdownEntry(String name, double weight, int numAssessments) {
-        this.typeOfAssessment = name;
+    public BreakdownEntry(String typeOfAssessment, double weight, int numAssessments) {
+        this.typeOfAssessment = typeOfAssessment;
         this.weight = weight;
         this.totalNumAssessments = numAssessments;
         numAssessmentsLeft = numAssessments;

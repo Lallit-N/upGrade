@@ -9,16 +9,16 @@ import java.util.Set;
 public class GradeBreakdown implements Iterable<BreakdownEntry> {
 
     private double marksAvailable;
-    private Set<BreakdownEntry> gBreakdown;
+    private Set<BreakdownEntry> gradeBreakdown;
 
 
-    public GradeBreakdown() {
-        gBreakdown = new HashSet<BreakdownEntry>();
+    public GradeBreakdown(HashSet<BreakdownEntry> gradeBreakdown) {
+        this.gradeBreakdown = gradeBreakdown;
         marksAvailable = 100;
     }
 
     public Set<BreakdownEntry> getGBreakdown() {
-        return gBreakdown;
+        return gradeBreakdown;
     }
 
     public double getMarksAvailable() {
@@ -26,18 +26,18 @@ public class GradeBreakdown implements Iterable<BreakdownEntry> {
     }
 
     public void addBreakdownEntry(BreakdownEntry be) {
-        gBreakdown.add(be);
+        gradeBreakdown.add(be);
         marksAvailable -= be.getWeight();
     }
 
     public void removeBreakdownEntry(BreakdownEntry be) {
-        gBreakdown.remove(be);
+        gradeBreakdown.remove(be);
         marksAvailable += be.getWeight();
     }
 
     @NonNull
     @Override
     public Iterator<BreakdownEntry> iterator() {
-        return gBreakdown.iterator();
+        return gradeBreakdown.iterator();
     }
 }

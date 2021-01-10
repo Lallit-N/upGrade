@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        courseList.add(new Course("CPSC 221", new GradeBreakdown()));
-        courseList.add(new Course("CPSC 213", new GradeBreakdown()));
-        courseList.add(new Course("MATH 221", new GradeBreakdown()));
-        courseList.add(new Course("PSYC 102", new GradeBreakdown()));
+//        courseList.add(new Course("CPSC 221", new GradeBreakdown()));
+//        courseList.add(new Course("CPSC 213", new GradeBreakdown()));
+//        courseList.add(new Course("MATH 221", new GradeBreakdown()));
+//        courseList.add(new Course("PSYC 102", new GradeBreakdown()));
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
