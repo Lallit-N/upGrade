@@ -7,18 +7,20 @@
 
     <TextView
         android:id="@+id/child_name"
-        android:layout_width="233dp"
-        android:layout_height="42dp"
+        android:layout_width="271dp"
+        android:layout_height="43dp"
         android:padding="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toStartOf="@+id/child_grade"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/child_grade"
-        android:layout_width="119dp"
-        android:layout_height="41dp"
+        android:layout_width="141dp"
+        android:layout_height="43dp"
         android:padding="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

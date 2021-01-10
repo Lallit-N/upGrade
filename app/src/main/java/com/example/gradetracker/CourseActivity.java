@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +17,13 @@ import static java.lang.Double.parseDouble;
 
 public class CourseActivity extends AppCompatActivity implements AddAssessmentDialog.AddAssessmentListener {
 
+    TextView currentGrade;
+    TextView minGrade;
+    TextView maxGrade;
+    TextView courseName;
+
     private List<AssessmentType> assessmentTypes;
     private RecyclerView parentRecyclerView;
-    private EditText courseName;
     private Course course;
 
     private Button addAssessmentButton;
@@ -33,6 +38,18 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
         CourseRecyclerAdapter courseRecyclerAdapter = new CourseRecyclerAdapter(assessmentTypes);
         parentRecyclerView.setAdapter(courseRecyclerAdapter);
         parentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
+        currentGrade = (TextView) findViewById(R.id.current_grade);
+        currentGrade.setText(course.getCurrentGrade());
+
+        minGrade = (TextView) findViewById(R.id.min_grade);
+        minGrade.setText(course.getMinGrade());
+
+        maxGrade = (TextView) findViewById(R.id.max_grade);
+        maxGrade.setText(course.getMinGrade());
+
+        courseName = (TextView) findViewById(R.id.course_name_2);
+        courseName.setText(course.getName());
 
         addAssessmentButton = (Button) findViewById(R.id.add_assessment_button);
         addAssessmentButton.setOnClickListener(new View.OnClickListener() {
