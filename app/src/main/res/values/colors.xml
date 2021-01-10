@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="app_color">#8BC34A</color>
-    <color name="notification_bar">#A999CF</color>
-    <color name="teal_200">#FF03DAC5</color>
+    <color name="app_color">#77A6B6</color>
+    <color name="notification_bar">#4D7298</color>
+    <color name="highlight_color">#D0EFB1</color>
     <color name="teal_700">#FF018786</color>
     <color name="text_colour">#FF000000</color>
-    <color name="white">#2A2A32</color>
-    <color name="undo_button">#1941D3</color>
+    <color name="white">#FFFFFF</color>
+    <color name="undo_button">#833833</color>
 </resources>
