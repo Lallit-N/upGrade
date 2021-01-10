@@ -14,14 +14,20 @@
         android:layout_centerVertical="true"/>
 
     <TextView
+        android:id="@+id/course_grade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/course_grade"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="154dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        android:layout_toEndOf="@+id/course_name"
+        android:layout_toRightOf="@+id/course_name"
         android:text="Grade"
         android:textColor="@color/text_colour"
-        android:textSize="24dp"
-        android:layout_marginLeft="300dp"
-        android:layout_centerVertical="true"/>
+        android:textSize="24dp" />
 
     <ImageView
         android:layout_width="40dp"
