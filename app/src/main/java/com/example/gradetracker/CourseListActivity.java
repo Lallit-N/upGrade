@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -31,7 +32,7 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        HashSet<BreakdownEntry> breakdownEntries = new HashSet<BreakdownEntry>();
+        List<BreakdownEntry> breakdownEntries = new ArrayList<BreakdownEntry>();
         breakdownEntries.add(new BreakdownEntry("yes", 20, 2));
 
         mCourses.add(new Course("CPSC 221", new GradeBreakdown(breakdownEntries)));
@@ -80,7 +81,7 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
         BreakdownEntry be7 = new BreakdownEntry(c7, parseDouble(w7), parseInt(a7));
         BreakdownEntry be8 = new BreakdownEntry(c8, parseDouble(w8), parseInt(a8));
 
-        HashSet<BreakdownEntry> beList = new HashSet<>();
+        List<BreakdownEntry> beList = new ArrayList<BreakdownEntry>();
 
         beList.add(be1);
         beList.add(be2);
@@ -99,9 +100,8 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
 
     @Override
     public void onCourseClick(int position) {
-        mCourses.get(position);
-        System.out.println("yoooooooooooo");
         //Intent intent = new Intent(this, NewActivity.class);
+        //intent.putExtra("Course", mCourses.get(position));
         //startActivity(intent);
     }
 }
