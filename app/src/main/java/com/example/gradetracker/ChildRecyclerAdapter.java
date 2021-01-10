@@ -29,7 +29,7 @@ public class ChildRecyclerAdapter extends RecyclerView.Adapter<ChildRecyclerAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.childName.setText(assessmentList.get(position).getName());
-        holder.childGrade.setText(Double.toString(assessmentList.get(position).getGrade()));
+        holder.childGrade.setText(Double.toString(assessmentList.get(position).getGrade()) + "%");
     }
 
     @Override
