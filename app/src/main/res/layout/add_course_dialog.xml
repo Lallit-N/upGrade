@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/assessments8"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory7"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/assessments7"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory6"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/assessments6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory5"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/assessments5"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory4"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/assessments4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory3"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/assessments3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory2"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/weight8"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory7"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/weight7"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory6"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/weight6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory5"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/weight5"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory4"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/weight4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory3"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/weight3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory2"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/catagory8"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory7"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/catagory7"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory6"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/catagory6"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory5"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/catagory5"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory4"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/catagory4"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory3"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/catagory3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catagory2"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/course_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Course Name" />
+
+    <EditText
+        android:id="@+id/catagory1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/course_name"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/weight1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/course_name"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory1"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/assessments1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/course_name"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight1"
+        android:hint="#" />
+
+    <EditText
+        android:id="@+id/catagory2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/catagory1"
+        android:hint="Type of Assessment" />
+
+    <EditText
+        android:id="@+id/weight2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/catagory1"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/catagory2"
+        android:hint="%" />
+
+    <EditText
+        android:id="@+id/assessments2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/catagory1"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/weight2"
+        android:hint="#" />
+
+
+</RelativeLayout>
