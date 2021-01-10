@@ -3,15 +3,17 @@ package com.example.gradetracker;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CourseActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView2;
+    private List<AssessmentType> assessmentTypes;
+    private RecyclerView parentRecyclerView;
     private EditText courseName;
     private Course course;
 
@@ -21,16 +23,24 @@ public class CourseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondary);
+        initData();
 
-        recyclerView2 = findViewById(R.id.recyclerView2);
+        parentRecyclerView = findViewById(R.id.parent_recycler_view);
 
-        course = (Course) getIntent().getSerializableExtra("Course");
     }
 
     private void initData() {
-        //course.getAssessments().
+        course = (Course) getIntent().getSerializableExtra("Course");
+        assessmentTypes = new ArrayList<AssessmentType>();
+
+        for (BreakdownEntry be : course.getGradeBreakdown()) {
+            if (course.getAssessments().containsKey(be)) {
+                assessmentTypes.add(new AssessmentType(be, course.getAssessments().get(be)));
+            } else {
+                assessmentTypes.add(new AssessmentType(be, new ArrayList<Assessment>()));
+            }
+        }
     }
 
 
-    }
 }

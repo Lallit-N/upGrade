@@ -4,20 +4,20 @@ import java.util.List;
 
 public class AssessmentType {
 
-    private String assessmentTypeName;
+    private BreakdownEntry be;
     private List<Assessment> assessmentList;
 
-    public AssessmentType(String assessmentTypeName, List<Assessment> assessmentList) {
-        this.assessmentTypeName = assessmentTypeName;
+    public AssessmentType(BreakdownEntry be, List<Assessment> assessmentList) {
+        this.be = be;
         this.assessmentList = assessmentList;
     }
 
-    public String getAssessmentTypeName() {
-        return assessmentTypeName;
+    public BreakdownEntry getBe() {
+        return be;
     }
 
-    public void setAssessmentTypeName(String assessmentTypeName) {
-        this.assessmentTypeName = assessmentTypeName;
+    public void setBe(BreakdownEntry be) {
+        this.be = be;
     }
 
     public List<Assessment> getAssessmentList() {
@@ -28,11 +28,4 @@ public class AssessmentType {
         this.assessmentList = assessmentList;
     }
 
-    @Override
-    public String toString() {
-        return "AssessmentType{" +
-                "assessmentTypeName='" + assessmentTypeName + '\'' +
-                ", assessmentList=" + assessmentList +
-                '}';
-    }
 }
