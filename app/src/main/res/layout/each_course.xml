@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="60dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -9,7 +9,7 @@
         android:id="@+id/course_name"
         android:text="Course"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="28dp"
         android:layout_marginLeft="20dp"
         android:layout_centerVertical="true"/>
 
@@ -27,6 +27,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/optionsMenu"
+        android:layout_centerVertical="true"
         android:src="@drawable/ic_baseline_more_vert_24"
         android:layout_alignParentRight="true"
         android:padding="5dp"/>
