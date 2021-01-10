@@ -51,7 +51,7 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
 
     @Override
     public void applyTexts2(String a, String g, String be) {
-        Assessment assessment = null;
+        Assessment assessment = new Assessment("hello there", 50, new BreakdownEntry("yes", 20, 2));
         for (BreakdownEntry b : course.getGradeBreakdown()) {
             if (b.getTypeOfAssessment().equals(be)) {
                 assessment = new Assessment(a, parseDouble(g), b);

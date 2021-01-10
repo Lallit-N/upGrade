@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
@@ -31,7 +33,7 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        List<BreakdownEntry> breakdownEntries = new ArrayList<BreakdownEntry>();
+        Set<BreakdownEntry> breakdownEntries = new HashSet<BreakdownEntry>();
         breakdownEntries.add(new BreakdownEntry("yes", 20, 2));
 
         Course course1 = new Course("CPSC 221", new GradeBreakdown(breakdownEntries));
@@ -59,6 +61,21 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
                 openDialog();
             }
         });
+
+
+        //---------------------------
+        BreakdownEntry be1 = new BreakdownEntry("yes", 20, 2);
+        BreakdownEntry be2 = new BreakdownEntry("hello", 30, 2);
+        Set<BreakdownEntry> breakdownEntrySet = new HashSet<>();
+        breakdownEntrySet.add(be1);
+        breakdownEntrySet.add(be2);
+        GradeBreakdown gb = new GradeBreakdown(breakdownEntrySet);
+        Course test = new Course("test", gb);
+        mCourses.add(test);
+        test.addAssessment(new Assessment("math", 100, be1));
+        test.addAssessment(new Assessment("science", 100, be2));
+        test.addAssessment(new Assessment("geo", 100, be1));
+
     }
 
     public void openDialog() {
@@ -76,25 +93,40 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
                            String c7, String w7, String a7,
                            String c8, String w8, String a8) {
 
-        BreakdownEntry be1 = new BreakdownEntry(c1, parseDouble(w1), parseInt(a1));
-        BreakdownEntry be2 = new BreakdownEntry(c2, parseDouble(w2), parseInt(a2));
-        BreakdownEntry be3 = new BreakdownEntry(c3, parseDouble(w3), parseInt(a3));
-        BreakdownEntry be4 = new BreakdownEntry(c4, parseDouble(w4), parseInt(a4));
-        BreakdownEntry be5 = new BreakdownEntry(c5, parseDouble(w5), parseInt(a5));
-        BreakdownEntry be6 = new BreakdownEntry(c6, parseDouble(w6), parseInt(a6));
-        BreakdownEntry be7 = new BreakdownEntry(c7, parseDouble(w7), parseInt(a7));
-        BreakdownEntry be8 = new BreakdownEntry(c8, parseDouble(w8), parseInt(a8));
+        Set<BreakdownEntry> beList = new HashSet<>();
 
-        List<BreakdownEntry> beList = new ArrayList<BreakdownEntry>();
-
-        beList.add(be1);
-        beList.add(be2);
-        beList.add(be3);
-        beList.add(be4);
-        beList.add(be5);
-        beList.add(be6);
-        beList.add(be7);
-        beList.add(be8);
+        if (!c1.equals("")) {
+            BreakdownEntry be1 = new BreakdownEntry(c1, parseDouble(w1), parseInt(a1));
+            beList.add(be1);
+        }
+        if (!c2.equals("")) {
+            BreakdownEntry be2 = new BreakdownEntry(c2, parseDouble(w2), parseInt(a2));
+            beList.add(be2);
+        }
+        if (!c3.equals("")) {
+            BreakdownEntry be3 = new BreakdownEntry(c3, parseDouble(w3), parseInt(a3));
+            beList.add(be3);
+        }
+        if (!c4.equals("")) {
+            BreakdownEntry be4 = new BreakdownEntry(c4, parseDouble(w4), parseInt(a4));
+            beList.add(be4);
+        }
+        if (!c5.equals("")) {
+            BreakdownEntry be5 = new BreakdownEntry(c5, parseDouble(w5), parseInt(a5));
+            beList.add(be5);
+        }
+        if (!c6.equals("")) {
+            BreakdownEntry be6 = new BreakdownEntry(c6, parseDouble(w6), parseInt(a6));
+            beList.add(be6);
+        }
+        if (!c7.equals("")) {
+            BreakdownEntry be7 = new BreakdownEntry(c7, parseDouble(w7), parseInt(a7));
+            beList.add(be7);
+        }
+        if (!c8.equals("")) {
+            BreakdownEntry be8 = new BreakdownEntry(c8, parseDouble(w8), parseInt(a8));
+            beList.add(be8);
+        }
 
         GradeBreakdown gb = new GradeBreakdown(beList);
 
@@ -107,6 +139,5 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
         Intent intent = new Intent(this, CourseActivity.class);
         intent.putExtra("Course", mCourses.get(position));
         startActivity(intent);
-
     }
 }

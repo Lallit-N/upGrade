@@ -5,19 +5,20 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class GradeBreakdown implements Iterable<BreakdownEntry>, Serializable {
 
     private double marksAvailable;
-    private List<BreakdownEntry> gradeBreakdown;
+    private Set<BreakdownEntry> gradeBreakdown;
 
 
-    public GradeBreakdown(List<BreakdownEntry> gradeBreakdown) {
+    public GradeBreakdown(Set<BreakdownEntry> gradeBreakdown) {
         this.gradeBreakdown = gradeBreakdown;
         marksAvailable = 100;
     }
 
-    public List<BreakdownEntry> getGBreakdown() {
+    public Set<BreakdownEntry> getGBreakdown() {
         return gradeBreakdown;
     }
 
