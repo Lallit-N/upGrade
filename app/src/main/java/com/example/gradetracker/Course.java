@@ -67,8 +67,10 @@ public class Course {
                 totalOutOf += b.getWeight();
             }
         }
-        currentGrade = currentGrade / totalOutOf;
-        return Double.toString(currentGrade);
+        if (totalOutOf != 0) {
+            currentGrade = currentGrade / totalOutOf;
+        }
+        return Double.toString(currentGrade) + "%";
     }
 
     public String getMinGrade() {
@@ -85,8 +87,10 @@ public class Course {
             minGrade += intermediateVal * b.getWeight();
             totalOutOf += b.getWeight();
         }
-        minGrade = minGrade / totalOutOf;
-        return Double.toString(minGrade);
+        if (totalOutOf != 0) {
+            minGrade = minGrade / totalOutOf;
+        }
+        return Double.toString(minGrade) + "%";
     }
 
     public String getMaxGrade() {
@@ -106,7 +110,9 @@ public class Course {
             maxGrade += intermediateVal * b.getWeight();
             totalOutOf += b.getWeight();
         }
-        maxGrade = maxGrade / totalOutOf;
-        return Double.toString(maxGrade);
+        if (totalOutOf != 0) {
+            maxGrade = maxGrade / totalOutOf;
+        }
+        return Double.toString(maxGrade) + "%";
     }
 }
