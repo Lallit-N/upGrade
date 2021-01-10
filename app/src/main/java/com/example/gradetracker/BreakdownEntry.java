@@ -3,32 +3,38 @@ package com.example.gradetracker;
 public class BreakdownEntry {
 
     private String typeOfAssessment;
-    private double weighting;
-    private int totalNumAssessments;
+    private double weight;
+    private double totalNumAssessments;
+    private double numAssessmentsLeft;
 
-    public BreakdownEntry(String name, double weighting, int numAssessments) {
+    public BreakdownEntry(String name, double weight, int numAssessments) {
         this.typeOfAssessment = name;
-        this.weighting = weighting;
+        this.weight = weight;
         this.totalNumAssessments = numAssessments;
+        numAssessmentsLeft = numAssessments;
     }
 
     public String getTypeOfAssessment() {
         return typeOfAssessment;
     }
 
-    public double getWeighting() {
-        return weighting;
+    public double getWeight() {
+        return weight;
     }
 
-    public int getTotalNumAssessments() {
+    public double getTotalNumAssessments() {
         return totalNumAssessments;
     }
 
+    public double getNumAssessmentsLeft() {
+        return numAssessmentsLeft;
+    }
+
     public void addAssessment() {
-        totalNumAssessments--;
+        numAssessmentsLeft--;
     }
 
     public void removeAssessment() {
-        totalNumAssessments++;
+        numAssessmentsLeft++;
     }
 }

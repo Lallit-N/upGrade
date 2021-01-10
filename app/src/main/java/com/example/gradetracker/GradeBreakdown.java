@@ -27,12 +27,12 @@ public class GradeBreakdown implements Iterable<BreakdownEntry> {
 
     public void addBreakdownEntry(BreakdownEntry be) {
         gBreakdown.add(be);
-        marksAvailable -= be.getWeighting();
+        marksAvailable -= be.getWeight();
     }
 
     public void removeBreakdownEntry(BreakdownEntry be) {
         gBreakdown.remove(be);
-        marksAvailable += be.getWeighting();
+        marksAvailable += be.getWeight();
     }
 
     @NonNull

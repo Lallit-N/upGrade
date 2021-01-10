@@ -1,7 +1,9 @@
 package com.example.gradetracker;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Course {
 
@@ -10,13 +12,13 @@ public class Course {
     private double minGrade;
     private double maxGrade;
     private GradeBreakdown gradeBreakdown;
-    private Set<Assessment> assessments;
+    private Map<BreakdownEntry, List<Assessment>> assessments;
 
 
     public Course(String name, GradeBreakdown gb) {
         this.name = name;
         gradeBreakdown = gb;
-        assessments = new HashSet<Assessment>();
+        assessments = new HashMap<BreakdownEntry, List<Assessment>>();
     }
 
     public String getName() {
@@ -27,33 +29,81 @@ public class Course {
         return gradeBreakdown;
     }
 
-    public Set<Assessment> getAssessments() {
+    public Map<BreakdownEntry, List<Assessment>> getAssessments() {
         return assessments;
     }
 
     public void addAssessment(Assessment assessment) {
-        assessments.add(assessment);
-        assessment.getBreakdownEntry().addAssessment();
+        if (assessments.containsKey(assessment.getBreakdownEntry())) {
+            assessments.get(assessment.getBreakdownEntry()).add(assessment);
+            assessment.getBreakdownEntry().addAssessment();
+        } else {
+            List<Assessment> tempList = new ArrayList<Assessment>();
+            tempList.add(assessment);
+            assessments.put(assessment.getBreakdownEntry(), tempList);
+            assessment.getBreakdownEntry().addAssessment();
+        }
     }
 
     public void removeAssessment(Assessment assessment) {
-        assessments.remove(assessment);
+        assessments.get(assessment.getBreakdownEntry()).remove(assessment);
         assessment.getBreakdownEntry().removeAssessment();
     }
 
-    public double getCurrentGrade() {
-
-        return 0; // stub
+    public String getCurrentGrade() {
+        currentGrade = 0;
+        double intermediateVal;
+        double totalOutOf = 0;
+        for (BreakdownEntry b : gradeBreakdown) {
+            intermediateVal = 0;
+            if (assessments.containsKey(b)) {
+                for (Assessment a : assessments.get(b)) {
+                    intermediateVal += a.getGrade() / assessments.get(b).size();
+                }
+                currentGrade += intermediateVal * b.getWeight();
+                totalOutOf += b.getWeight();
+            }
+        }
+        currentGrade = currentGrade / totalOutOf;
+        return Double.toString(currentGrade);
     }
 
-    public double getMinGrade() {
-
-        return 0; // stub
+    public String getMinGrade() {
+        minGrade = 0;
+        double intermediateVal;
+        double totalOutOf = 0;
+        for (BreakdownEntry b : gradeBreakdown) {
+            intermediateVal = 0;
+            if (assessments.containsKey(b)) {
+                for (Assessment a : assessments.get(b)) {
+                    intermediateVal += a.getGrade() / b.getTotalNumAssessments();
+                }
+            }
+            minGrade += intermediateVal * b.getWeight();
+            totalOutOf += b.getWeight();
+        }
+        minGrade = minGrade / totalOutOf;
+        return Double.toString(minGrade);
     }
 
-    public double getMaxGrade() {
-
-        return 0; // stub
+    public String getMaxGrade() {
+        maxGrade = 0;
+        double intermediateVal;
+        double totalOutOf = 0;
+        for (BreakdownEntry b : gradeBreakdown) {
+            intermediateVal = 0;
+            if (assessments.containsKey(b)) {
+                for (Assessment a : assessments.get(b)) {
+                    intermediateVal += a.getGrade() / b.getTotalNumAssessments();
+                    intermediateVal += b.getNumAssessmentsLeft() * 100 / b.getTotalNumAssessments();
+                }
+            } else {
+                intermediateVal = 100;
+            }
+            maxGrade += intermediateVal * b.getWeight();
+            totalOutOf += b.getWeight();
+        }
+        maxGrade = maxGrade / totalOutOf;
+        return Double.toString(maxGrade);
     }
-
 }
