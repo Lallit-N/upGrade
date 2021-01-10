@@ -210,5 +210,4 @@
         android:layout_toRightOf="@+id/weight2"
         android:hint="#" />
 
-
 </RelativeLayout>
