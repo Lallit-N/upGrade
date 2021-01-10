@@ -19,9 +19,6 @@ public class Course {
         this.name = name;
         gradeBreakdown = gb;
         assessments = new HashMap<BreakdownEntry, List<Assessment>>();
-        currentGrade = 0;
-        minGrade = 0;
-        maxGrade = 0;
     }
 
     public String getName() {
@@ -114,5 +111,18 @@ public class Course {
             maxGrade = maxGrade / totalOutOf;
         }
         return Double.toString(maxGrade) + "%";
+    }
+
+    // REQUIRES: everything except for Final Exam should be marked and imported
+    public String getRequiredFinalExamGrade(double desiredGrade) {
+        double totalOutOf = 0;
+        for (BreakdownEntry b : gradeBreakdown) {
+            if (assessments.containsKey(b)) {
+                totalOutOf += b.getWeight();
+            }
+        }
+        double requiredFinalExamGrade =
+                (desiredGrade - (currentGrade * totalOutOf / 100)) / (100 - totalOutOf);
+        return Double.toString(requiredFinalExamGrade) + "%";
     }
 }
