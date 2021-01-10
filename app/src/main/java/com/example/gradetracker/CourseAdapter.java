@@ -14,10 +14,12 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ExampleVie
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder {
         public TextView courseName;
+        public TextView courseGrade;
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
             courseName = itemView.findViewById(R.id.course_name);
+            courseGrade = itemView.findViewById(R.id.course_grade);
         }
     }
 
@@ -36,6 +38,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ExampleVie
     public void onBindViewHolder(ExampleViewHolder holder, int position) {
         Course currentItem = courseList.get(position);
         holder.courseName.setText(currentItem.getName());
+        holder.courseGrade.setText(currentItem.getCurrentGrade());
     }
     @Override
     public int getItemCount() {
