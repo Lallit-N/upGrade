@@ -19,7 +19,7 @@ public class AddCourseDialog extends AppCompatDialogFragment {
     private EditText assessments1, assessments2, assessments3, assessments4, assessments5, assessments6, assessments7, assessments8;
 
     @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -44,33 +44,33 @@ public class AddCourseDialog extends AppCompatDialogFragment {
         weight1 = view.findViewById(R.id.weight1);
         assessments1 = view.findViewById(R.id.assessments1);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory2 = view.findViewById(R.id.catagory2);
+        weight2 = view.findViewById(R.id.weight2);
+        assessments2 = view.findViewById(R.id.assessments2);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory3 = view.findViewById(R.id.catagory3);
+        weight3 = view.findViewById(R.id.weight3);
+        assessments3 = view.findViewById(R.id.assessments3);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory4 = view.findViewById(R.id.catagory4);
+        weight4 = view.findViewById(R.id.weight4);
+        assessments4 = view.findViewById(R.id.assessments4);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory5 = view.findViewById(R.id.catagory5);
+        weight5 = view.findViewById(R.id.weight5);
+        assessments5 = view.findViewById(R.id.assessments5);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory6 = view.findViewById(R.id.catagory6);
+        weight6 = view.findViewById(R.id.weight6);
+        assessments6 = view.findViewById(R.id.assessments6);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory7 = view.findViewById(R.id.catagory7);
+        weight7 = view.findViewById(R.id.weight7);
+        assessments7 = view.findViewById(R.id.assessments7);
 
-        catagory1 = view.findViewById(R.id.catagory1);
-        weight1 = view.findViewById(R.id.weight1);
-        assessments1 = view.findViewById(R.id.assessments1);
+        catagory8 = view.findViewById(R.id.catagory8);
+        weight8 = view.findViewById(R.id.weight8);
+        assessments8 = view.findViewById(R.id.assessments8);
 
         return builder.create();
     }

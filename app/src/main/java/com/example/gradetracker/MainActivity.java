@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    private Button addCourseButton;
 
     ArrayList<Course> courseList = new ArrayList<Course>();
 
@@ -39,5 +42,19 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+
+        addCourseButton = (Button) findViewById(R.id.add_course_button);
+        addCourseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        });
     }
+
+    public void openDialog() {
+        AddCourseDialog acd = new AddCourseDialog();
+        acd.show(getSupportFragmentManager(), "Add Course");
+    }
+
 }
