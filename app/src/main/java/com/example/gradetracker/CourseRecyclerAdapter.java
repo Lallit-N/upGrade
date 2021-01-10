@@ -13,6 +13,7 @@ import java.util.List;
 public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAdapter.ViewHolder> {
 
     private List<AssessmentType> assessmentTypes;
+    ChildRecyclerAdapter childRecyclerAdapter;
 
     public CourseRecyclerAdapter(List<AssessmentType> assessmentTypes) {
         this.assessmentTypes = assessmentTypes;
@@ -36,7 +37,7 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
         holder.assessmentTypeName.setText(typeName);
         holder.weighting.setText(weighting);
 
-        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter(assessments);
+        childRecyclerAdapter = new ChildRecyclerAdapter(assessments);
         holder.childRecyclerView.setAdapter(childRecyclerAdapter);
 
     }

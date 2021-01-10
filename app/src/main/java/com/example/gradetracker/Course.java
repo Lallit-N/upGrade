@@ -2,6 +2,8 @@ package com.example.gradetracker;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -68,7 +70,8 @@ public class Course implements Serializable {
         if (totalOutOf != 0) {
             currentGrade = currentGrade / totalOutOf;
         }
-        return Double.toString(currentGrade) + "%";
+        DecimalFormat df = new DecimalFormat("###.##");
+        return df.format(currentGrade) + "%";
     }
 
     public String getMinGrade() {
@@ -88,7 +91,8 @@ public class Course implements Serializable {
         if (totalOutOf != 0) {
             minGrade = minGrade / totalOutOf;
         }
-        return Double.toString(minGrade) + "%";
+        DecimalFormat df = new DecimalFormat("###.##");
+        return df.format(minGrade) + "%";
     }
 
     public String getMaxGrade() {
@@ -111,7 +115,8 @@ public class Course implements Serializable {
         if (totalOutOf != 0) {
             maxGrade = maxGrade / totalOutOf;
         }
-        return Double.toString(maxGrade) + "%";
+        DecimalFormat df = new DecimalFormat("###.##");
+        return df.format(maxGrade) + "%";
     }
 
     // REQUIRES: everything except for Final Exam should be marked and imported
@@ -124,7 +129,8 @@ public class Course implements Serializable {
         }
         double requiredFinalExamGrade =
                 (desiredGrade - (currentGrade * totalOutOf / 100)) / (100 - totalOutOf);
-        return Double.toString(requiredFinalExamGrade) + "%";
+        DecimalFormat df = new DecimalFormat("###.##");
+        return df.format(requiredFinalExamGrade) + "%";
     }
     
 }

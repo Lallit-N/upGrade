@@ -77,6 +77,8 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
         }
         course.addAssessment(assessment);
         courseRecyclerAdapter.notifyDataSetChanged();
+        finish();
+        startActivity(getIntent());
     }
 
     private void initData() {
