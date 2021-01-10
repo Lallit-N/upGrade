@@ -20,7 +20,7 @@
         android:layout_width="140dp"
         android:layout_height="58dp"
         android:text="Add Course"
-        app:backgroundTint="#505050"
+        app:backgroundTint="#C8C9ED"
         app:cornerRadius="90dp"
         app:icon="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
