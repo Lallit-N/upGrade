@@ -19,6 +19,9 @@ public class Course {
         this.name = name;
         gradeBreakdown = gb;
         assessments = new HashMap<BreakdownEntry, List<Assessment>>();
+        currentGrade = 0;
+        minGrade = 0;
+        maxGrade = 0;
     }
 
     public String getName() {
