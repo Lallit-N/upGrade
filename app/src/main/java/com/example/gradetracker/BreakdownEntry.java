@@ -1,8 +1,5 @@
 package com.example.gradetracker;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public class BreakdownEntry implements Serializable {
@@ -17,13 +14,6 @@ public class BreakdownEntry implements Serializable {
         this.weight = weight;
         this.totalNumAssessments = numAssessments;
         numAssessmentsLeft = numAssessments;
-    }
-
-    protected BreakdownEntry(Parcel in) {
-        typeOfAssessment = in.readString();
-        weight = in.readDouble();
-        totalNumAssessments = in.readDouble();
-        numAssessmentsLeft = in.readDouble();
     }
 
     public String getTypeOfAssessment() {
