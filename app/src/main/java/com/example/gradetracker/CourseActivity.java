@@ -5,13 +5,16 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseActivity extends AppCompatActivity {
+import static java.lang.Double.parseDouble;
+
+public class CourseActivity extends AppCompatActivity implements AddAssessmentDialog.AddAssessmentListener {
 
     private List<AssessmentType> assessmentTypes;
     private RecyclerView parentRecyclerView;
@@ -31,6 +34,30 @@ public class CourseActivity extends AppCompatActivity {
         parentRecyclerView.setAdapter(courseRecyclerAdapter);
         parentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
+        addAssessmentButton = (Button) findViewById(R.id.add_assessment_button);
+        addAssessmentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        });
+
+    }
+
+    public void openDialog() {
+        AddAssessmentDialog aad = new AddAssessmentDialog();
+        aad.show(getSupportFragmentManager(), "Add Assessment");
+    }
+
+    @Override
+    public void applyTexts2(String a, String g, String be) {
+        Assessment assessment = null;
+        for (BreakdownEntry b : course.getGradeBreakdown()) {
+            if (b.getTypeOfAssessment().equals(be)) {
+                assessment = new Assessment(a, parseDouble(g), b);
+            }
+        }
+        course.addAssessment(assessment);
     }
 
     private void initData() {

@@ -18,7 +18,7 @@ public class AddAssessmentDialog extends AppCompatDialogFragment {
     private EditText grade;
     private EditText breakdownEntry;
 
-    private AddAssessmentDialog.AddAssessmentListener listener;
+    private AddAssessmentListener listener;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -46,6 +46,10 @@ public class AddAssessmentDialog extends AppCompatDialogFragment {
                     }
                 });
 
+        assessmentName = view.findViewById(R.id.assessment_name);
+        grade = view.findViewById(R.id.assessment_grade);
+        breakdownEntry = view.findViewById(R.id.assessment_category);
+
         return builder.create();
     }
 
@@ -53,7 +57,7 @@ public class AddAssessmentDialog extends AppCompatDialogFragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        listener = (AddAssessmentDialog.AddAssessmentListener) context;
+        listener = (AddAssessmentListener) context;
     }
 
     public interface AddAssessmentListener {
