@@ -1,6 +1,7 @@
 package com.example.gradetracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -26,6 +27,9 @@ public class CourseActivity extends AppCompatActivity {
         initData();
 
         parentRecyclerView = findViewById(R.id.parent_recycler_view);
+        CourseRecyclerAdapter courseRecyclerAdapter = new CourseRecyclerAdapter(assessmentTypes);
+        parentRecyclerView.setAdapter(courseRecyclerAdapter);
+        parentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
     }
 
