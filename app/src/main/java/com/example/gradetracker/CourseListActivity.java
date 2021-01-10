@@ -10,13 +10,12 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
-public class CourseListActivity extends AppCompatActivity implements AddCourseDialog.AddCourseListener, CourseRecyclerAdapter.OnCourseListener {
+public class CourseListActivity extends AppCompatActivity implements AddCourseDialog.AddCourseListener, CourseListRecyclerAdapter.OnCourseListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -35,15 +34,20 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
         List<BreakdownEntry> breakdownEntries = new ArrayList<BreakdownEntry>();
         breakdownEntries.add(new BreakdownEntry("yes", 20, 2));
 
-        mCourses.add(new Course("CPSC 221", new GradeBreakdown(breakdownEntries)));
+        Course course1 = new Course("CPSC 221", new GradeBreakdown(breakdownEntries));
+
+        mCourses.add(course1);
         mCourses.add(new Course("CPSC 213", new GradeBreakdown(breakdownEntries)));
         mCourses.add(new Course("MATH 221", new GradeBreakdown(breakdownEntries)));
         mCourses.add(new Course("PSYC 102", new GradeBreakdown(breakdownEntries)));
 
+        course1.addAssessment(new Assessment("test", 69, new BreakdownEntry("yes", 20, 2)));
+
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CourseRecyclerAdapter(this, mCourses, this);
+        adapter = new CourseListRecyclerAdapter(this, mCourses, this);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -103,5 +107,6 @@ public class CourseListActivity extends AppCompatActivity implements AddCourseDi
         Intent intent = new Intent(this, CourseActivity.class);
         intent.putExtra("Course", mCourses.get(position));
         startActivity(intent);
+
     }
 }

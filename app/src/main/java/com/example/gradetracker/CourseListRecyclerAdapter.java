@@ -18,14 +18,14 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAdapter.CourseViewHolder> {
+public class CourseListRecyclerAdapter extends RecyclerView.Adapter<CourseListRecyclerAdapter.CourseViewHolder> {
 
     private List<Course> mCourses = new ArrayList<Course>();
     private OnCourseListener mOnCourseListener;
     private Context mContext;
     Course temp;
 
-    public CourseRecyclerAdapter(Context context, ArrayList<Course> courses, OnCourseListener onCourseListener) {
+    public CourseListRecyclerAdapter(Context context, ArrayList<Course> courses, OnCourseListener onCourseListener) {
         mContext = context;
         mCourses = courses;
         mOnCourseListener = onCourseListener;
@@ -34,13 +34,13 @@ public class CourseRecyclerAdapter extends RecyclerView.Adapter<CourseRecyclerAd
 
     @NonNull
     @Override
-    public CourseRecyclerAdapter.CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CourseListRecyclerAdapter.CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.each_course, parent, false);
         return new CourseViewHolder(view, mOnCourseListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseRecyclerAdapter.CourseViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CourseListRecyclerAdapter.CourseViewHolder holder, int position) {
         holder.courseName.setText(mCourses.get(position).getName());
         holder.courseGrade.setText(mCourses.get(position).getCurrentGrade());
         holder.popUpMenu.setOnClickListener(new View.OnClickListener() {

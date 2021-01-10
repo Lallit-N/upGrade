@@ -3,12 +3,13 @@ package com.example.gradetracker;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Course implements Parcelable {
+public class Course implements Serializable {
 
     private String name;
     private double currentGrade;
@@ -30,18 +31,6 @@ public class Course implements Parcelable {
         minGrade = in.readDouble();
         maxGrade = in.readDouble();
     }
-
-    public static final Creator<Course> CREATOR = new Creator<Course>() {
-        @Override
-        public Course createFromParcel(Parcel in) {
-            return new Course(in);
-        }
-
-        @Override
-        public Course[] newArray(int size) {
-            return new Course[size];
-        }
-    };
 
     public String getName() {
         return name;
@@ -146,19 +135,5 @@ public class Course implements Parcelable {
                 (desiredGrade - (currentGrade * totalOutOf / 100)) / (100 - totalOutOf);
         return Double.toString(requiredFinalExamGrade) + "%";
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-        dest.writeDouble(currentGrade);
-        dest.writeDouble(minGrade);
-        dest.writeDouble(maxGrade);
-        dest.writeParcelable(gradeBreakdown, flags);
-        dest.writeMap(assessments);
-    }
+    
 }
