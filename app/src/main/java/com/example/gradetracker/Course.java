@@ -36,13 +36,12 @@ public class Course {
     public void addAssessment(Assessment assessment) {
         if (assessments.containsKey(assessment.getBreakdownEntry())) {
             assessments.get(assessment.getBreakdownEntry()).add(assessment);
-            assessment.getBreakdownEntry().addAssessment();
         } else {
             List<Assessment> tempList = new ArrayList<Assessment>();
             tempList.add(assessment);
             assessments.put(assessment.getBreakdownEntry(), tempList);
-            assessment.getBreakdownEntry().addAssessment();
         }
+        assessment.getBreakdownEntry().addAssessment();
     }
 
     public void removeAssessment(Assessment assessment) {
