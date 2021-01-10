@@ -80,7 +80,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ExampleVie
         courseList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, courseList.size());
-        Snackbar.make(view, temp.getName() + " Has Been Removed.", Snackbar.LENGTH_LONG)
+        Snackbar.make(view, temp.getName() + " was removed.", Snackbar.LENGTH_LONG)
                 .setAction("UNDO", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
