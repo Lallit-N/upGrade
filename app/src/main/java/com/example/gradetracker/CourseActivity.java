@@ -13,6 +13,7 @@ public class CourseActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView2;
     private EditText courseName;
+    private Course course;
 
     private Button addAssessmentButton;
 
@@ -23,8 +24,12 @@ public class CourseActivity extends AppCompatActivity {
 
         recyclerView2 = findViewById(R.id.recyclerView2);
 
-        Course course = (Course) getIntent().getSerializableExtra("Course");
+        course = (Course) getIntent().getSerializableExtra("Course");
+    }
 
+    private void initData() {
+        //course.getAssessments().
+    }
 
 
     }

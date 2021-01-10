@@ -1,7 +1,5 @@
 package com.example.gradetracker;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,13 +21,6 @@ public class Course implements Serializable {
         this.name = name;
         gradeBreakdown = gb;
         assessments = new HashMap<BreakdownEntry, List<Assessment>>();
-    }
-
-    protected Course(Parcel in) {
-        name = in.readString();
-        currentGrade = in.readDouble();
-        minGrade = in.readDouble();
-        maxGrade = in.readDouble();
     }
 
     public String getName() {

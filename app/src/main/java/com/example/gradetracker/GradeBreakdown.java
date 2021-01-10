@@ -1,17 +1,10 @@
 package com.example.gradetracker;
 
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public class GradeBreakdown implements Iterable<BreakdownEntry>, Serializable {
 
@@ -22,10 +15,6 @@ public class GradeBreakdown implements Iterable<BreakdownEntry>, Serializable {
     public GradeBreakdown(List<BreakdownEntry> gradeBreakdown) {
         this.gradeBreakdown = gradeBreakdown;
         marksAvailable = 100;
-    }
-
-    protected GradeBreakdown(Parcel in) {
-        marksAvailable = in.readDouble();
     }
 
     public List<BreakdownEntry> getGBreakdown() {
