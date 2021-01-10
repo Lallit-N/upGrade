@@ -24,6 +24,7 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
 
     private List<AssessmentType> assessmentTypes;
     private RecyclerView parentRecyclerView;
+    private CourseRecyclerAdapter courseRecyclerAdapter;
     private Course course;
 
     private Button addAssessmentButton;
@@ -35,7 +36,7 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
         initData();
 
         parentRecyclerView = findViewById(R.id.parent_recycler_view);
-        CourseRecyclerAdapter courseRecyclerAdapter = new CourseRecyclerAdapter(assessmentTypes);
+        courseRecyclerAdapter = new CourseRecyclerAdapter(assessmentTypes);
         parentRecyclerView.setAdapter(courseRecyclerAdapter);
         parentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
@@ -75,6 +76,7 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
             }
         }
         course.addAssessment(assessment);
+        courseRecyclerAdapter.notifyDataSetChanged();
     }
 
     private void initData() {
