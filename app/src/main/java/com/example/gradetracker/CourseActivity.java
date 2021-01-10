@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -78,13 +79,14 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
         course.addAssessment(assessment);
         courseRecyclerAdapter.notifyDataSetChanged();
         finish();
+        overridePendingTransition(0, 0);
         startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 
     private void initData() {
         course = (Course) getIntent().getSerializableExtra("Course");
         assessmentTypes = new ArrayList<AssessmentType>();
-
         for (BreakdownEntry be : course.getGradeBreakdown()) {
             if (course.getAssessments().containsKey(be)) {
                 assessmentTypes.add(new AssessmentType(be, course.getAssessments().get(be)));
@@ -92,5 +94,14 @@ public class CourseActivity extends AppCompatActivity implements AddAssessmentDi
                 assessmentTypes.add(new AssessmentType(be, new ArrayList<Assessment>()));
             }
         }
+    }
+
+    public void onBackPressed() {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("Course", course);
+        onSaveInstanceState(bundle);
+        Intent intent = new Intent(this, CourseListActivity.class);
+        intent.putExtra("Course", course);
+        startActivity(intent);
     }
 }

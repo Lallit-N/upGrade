@@ -1,6 +1,7 @@
 package com.example.gradetracker;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class BreakdownEntry implements Serializable {
 
@@ -40,4 +41,16 @@ public class BreakdownEntry implements Serializable {
         numAssessmentsLeft++;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BreakdownEntry that = (BreakdownEntry) o;
+        return Objects.equals(typeOfAssessment, that.typeOfAssessment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(typeOfAssessment);
+    }
 }
