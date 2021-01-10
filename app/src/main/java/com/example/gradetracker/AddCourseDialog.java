@@ -130,8 +130,8 @@ public class AddCourseDialog extends AppCompatDialogFragment {
                         String c6, String w6, String a6,
                         String c7, String w7, String a7,
                         String c8, String w8, String a8);
-
     }
+
 }
 
 
