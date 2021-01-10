@@ -45,33 +45,33 @@ public class AddCourseDialog extends AppCompatDialogFragment {
                         String w1 = weight1.getText().toString();
                         String a1 = assessments1.getText().toString();
 
-                        String c2 = category1.getText().toString();
-                        String w2 = weight1.getText().toString();
-                        String a2 = assessments1.getText().toString();
+                        String c2 = category2.getText().toString();
+                        String w2 = weight2.getText().toString();
+                        String a2 = assessments2.getText().toString();
 
-                        String c3 = category1.getText().toString();
-                        String w3 = weight1.getText().toString();
-                        String a3 = assessments1.getText().toString();
+                        String c3 = category3.getText().toString();
+                        String w3 = weight3.getText().toString();
+                        String a3 = assessments3.getText().toString();
 
-                        String c4 = category1.getText().toString();
-                        String w4 = weight1.getText().toString();
-                        String a4 = assessments1.getText().toString();
+                        String c4 = category4.getText().toString();
+                        String w4 = weight4.getText().toString();
+                        String a4 = assessments4.getText().toString();
 
-                        String c5 = category1.getText().toString();
-                        String w5 = weight1.getText().toString();
-                        String a5 = assessments1.getText().toString();
+                        String c5 = category5.getText().toString();
+                        String w5 = weight5.getText().toString();
+                        String a5 = assessments5.getText().toString();
 
-                        String c6 = category1.getText().toString();
-                        String w6 = weight1.getText().toString();
-                        String a6 = assessments1.getText().toString();
+                        String c6 = category6.getText().toString();
+                        String w6 = weight6.getText().toString();
+                        String a6 = assessments6.getText().toString();
 
-                        String c7 = category1.getText().toString();
-                        String w7 = weight1.getText().toString();
-                        String a7 = assessments1.getText().toString();
+                        String c7 = category7.getText().toString();
+                        String w7 = weight7.getText().toString();
+                        String a7 = assessments7.getText().toString();
 
-                        String c8 = category1.getText().toString();
-                        String w8 = weight1.getText().toString();
-                        String a8 = assessments1.getText().toString();
+                        String c8 = category8.getText().toString();
+                        String w8 = weight8.getText().toString();
+                        String a8 = assessments8.getText().toString();
 
                         listener.applyTexts(name, c1, w1, a1, c2, w2, a2, c3,  w3, a3, c4, w4, a4, c5, w5, a5, c6, w6, a6, c7, w7, a7, c8, w8, a8);
                     }
