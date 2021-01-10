@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ExampleViewHolder> {
@@ -63,9 +65,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ExampleVie
                                 Toast.makeText(menuContext, "Edit Clicked", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.delete:
-                                Toast.makeText(menuContext, "Delete Clicked", Toast.LENGTH_SHORT).show();
                                 temp = new Course(courseList.get(position).getName(), courseList.get(position).getGradeBreakdown());
-                                deleteCourse(position);
+                                deleteCourse(position, v);
                                 break;
                         }
                         return true;
@@ -75,10 +76,19 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ExampleVie
         });
     }
 
-    private void deleteCourse(int position) {
+    private void deleteCourse(int position, View view) {
         courseList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, courseList.size());
+        Snackbar.make(view, temp.getName() + " Has Been Removed.", Snackbar.LENGTH_LONG)
+                .setAction("UNDO", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                courseList.add(position, temp);
+                notifyItemInserted(position);
+                notifyItemRangeChanged(position, courseList.size());
+            }
+        }).setActionTextColor(menuContext.getResources().getColor(R.color.undo_button)).show();
     }
 
     @Override
