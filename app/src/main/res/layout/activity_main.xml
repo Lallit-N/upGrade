@@ -13,9 +13,12 @@
 
     <Button
         android:id="@+id/add_course_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_width="140dp"
+        android:layout_height="58dp"
+        android:text="Add Course"
+        app:backgroundTint="#505050"
+        app:cornerRadius="90dp"
+        app:icon="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
