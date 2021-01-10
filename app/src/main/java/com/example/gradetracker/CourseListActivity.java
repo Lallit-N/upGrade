@@ -4,25 +4,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
-public class MainActivity extends AppCompatActivity implements AddCourseDialog.AddCourseListener {
+public class CourseListActivity extends AppCompatActivity implements AddCourseDialog.AddCourseListener, CourseRecyclerAdapter.OnCourseListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private Button addCourseButton;
 
-    ArrayList<Course> courseList = new ArrayList<Course>();
+    ArrayList<Course> mCourses = new ArrayList<Course>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +34,15 @@ public class MainActivity extends AppCompatActivity implements AddCourseDialog.A
         HashSet<BreakdownEntry> breakdownEntries = new HashSet<BreakdownEntry>();
         breakdownEntries.add(new BreakdownEntry("yes", 20, 2));
 
-        courseList.add(new Course("CPSC 221", new GradeBreakdown(breakdownEntries)));
-        courseList.add(new Course("CPSC 213", new GradeBreakdown(breakdownEntries)));
-        courseList.add(new Course("MATH 221", new GradeBreakdown(breakdownEntries)));
-        courseList.add(new Course("PSYC 102", new GradeBreakdown(breakdownEntries)));
+        mCourses.add(new Course("CPSC 221", new GradeBreakdown(breakdownEntries)));
+        mCourses.add(new Course("CPSC 213", new GradeBreakdown(breakdownEntries)));
+        mCourses.add(new Course("MATH 221", new GradeBreakdown(breakdownEntries)));
+        mCourses.add(new Course("PSYC 102", new GradeBreakdown(breakdownEntries)));
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new CourseAdapter(this, courseList);
+        adapter = new CourseRecyclerAdapter(this, mCourses, this);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -93,7 +93,15 @@ public class MainActivity extends AppCompatActivity implements AddCourseDialog.A
 
         GradeBreakdown gb = new GradeBreakdown(beList);
 
-        courseList.add(new Course(name, gb));
+        mCourses.add(new Course(name, gb));
 
+    }
+
+    @Override
+    public void onCourseClick(int position) {
+        mCourses.get(position);
+        System.out.println("yoooooooooooo");
+        //Intent intent = new Intent(this, NewActivity.class);
+        //startActivity(intent);
     }
 }

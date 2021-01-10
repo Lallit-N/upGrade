@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/course_name"
         android:text="Course"
-        android:textColor="@color/black"
+        android:textColor="@color/text_colour"
         android:textSize="28dp"
         android:layout_marginLeft="20dp"
         android:layout_centerVertical="true"/>
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/course_grade"
         android:text="Grade"
-        android:textColor="@color/black"
+        android:textColor="@color/text_colour"
         android:textSize="24dp"
         android:layout_marginLeft="300dp"
         android:layout_centerVertical="true"/>
